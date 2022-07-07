@@ -1,3 +1,6 @@
+import React, {useState} from "react";
+import {v4 as uuid} from 'uuid';
+
 import {
     FormControl,
     FormLabel,
@@ -7,7 +10,6 @@ import {
 
 import {useSetRecoilState} from "recoil";
 import {EventsAtomState} from "../../state";
-import React, {useState} from "react";
 
 const FormEvents = () => {
     const [title, setTitle] = useState('');
@@ -22,7 +24,7 @@ const FormEvents = () => {
                 return [
                     ...oldEvents,
                     {
-                        id: 4,
+                        id: uuid(),
                         title: title,
                         body: body,
                         price: price

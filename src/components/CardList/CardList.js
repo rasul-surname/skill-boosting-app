@@ -12,7 +12,7 @@ const CardList = props => {
                     <Text>{card.body}</Text>
                     {card.price && <Text>{card.price} ₽</Text>}
                     <Button as="a" variant="outline">Подробнее</Button>
-                    {props.delete && <Button as="a" variant="outline">Удалить</Button>}
+                    {props.delete && <Button as="a" variant="outline" onClick={() => props.deleteEvent(card.id)}>Удалить</Button>}
                 </Stack>
             ))}
         </SimpleGrid>
