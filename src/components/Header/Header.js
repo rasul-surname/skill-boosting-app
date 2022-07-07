@@ -31,6 +31,11 @@ const Header = () => {
                                         <span>Фоточки</span>
                                     </Box>
                                 </NavLink>
+                                <NavLink to="/animation">
+                                    <Box as="li" _hover={{background: '#01c0b1', color: 'white'}} p="2">
+                                        <span>Анимации</span>
+                                    </Box>
+                                </NavLink>
                             </HStack>
                         </Box>
                     </Box>

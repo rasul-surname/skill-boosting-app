@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Events from "./components/Events/Events";
 import About from "./components/About/About";
 import Album from "./components/Album/Album";
+import Animation from "./components/Animation/Animation";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/about" element={<About/>}/>
                     <Route path="/events" element={<Events/>}/>
                     <Route path="/album" element={<Album/>}/>
+                    <Route path="/animation" element={<Animation/>}/>
                 </Routes>
             </Container>
         </ChakraProvider>
