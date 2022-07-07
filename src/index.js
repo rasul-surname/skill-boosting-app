@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import {RecoilRoot} from "recoil";
+import {BrowserRouter} from "react-router-dom";
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -13,7 +14,9 @@ root.render(
     <StrictMode>
         <ColorModeScript/>
         <RecoilRoot>
-            <App/>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
         </RecoilRoot>
     </StrictMode>
 );
