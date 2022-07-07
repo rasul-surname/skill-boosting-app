@@ -10,7 +10,9 @@ const CardList = props => {
                 <Stack key={card.title} spacing={4} _hover={{shadow: 'md'}} p="2" border="1px solid #ccc">
                     <Heading as="h3" noOfLines={1}>{card.title}</Heading>
                     <Text>{card.body}</Text>
+                    {card.price && <Text>{card.price} ₽</Text>}
                     <Button as="a" variant="outline">Подробнее</Button>
+                    {props.delete && <Button as="a" variant="outline">Удалить</Button>}
                 </Stack>
             ))}
         </SimpleGrid>

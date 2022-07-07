@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useRecoilValue} from 'recoil';
 import {EventsAtomState} from "../../state";
-import {Stack} from '@chakra-ui/react';
+import {Heading, Stack} from '@chakra-ui/react';
 import CardList from "../CardList/CardList";
 import FormEvents from "../FormEvents/FormEvents";
 
@@ -11,7 +11,7 @@ const Events = () => {
 
     return (
         <Stack>
-            <CardList cards={Events}/>
+            <CardList cards={Events} delete={true} />
             <FormEvents />
         </Stack>
     )

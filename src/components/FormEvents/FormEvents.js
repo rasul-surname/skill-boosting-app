@@ -2,40 +2,74 @@ import {
     FormControl,
     FormLabel,
     Input,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper,
-    Center,
-    Heading,
-    Button
+    Button, SimpleGrid, Box
 } from '@chakra-ui/react';
 
+import {useSetRecoilState} from "recoil";
+import {EventsAtomState} from "../../state";
+import React, {useState} from "react";
+
 const FormEvents = () => {
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    const [price, setPrice] = useState('');
+
+    const setEvents = useSetRecoilState(EventsAtomState);
+
+    function handleSubmit() {
+        if(!!title.length && !!body.length && !!price.length) {
+            setEvents((oldEvents) => {
+                return [
+                    ...oldEvents,
+                    {
+                        id: 4,
+                        title: title,
+                        body: body,
+                        price: price
+                    }
+                ]
+            });
+
+            setTitle('');
+            setBody('');
+            setPrice('');
+        }
+    }
 
     return (
         <FormControl isRequired>
-            <Heading>Создать мероприятие ↓↓↓</Heading>
-            <Center height="30px"></Center>
-            <FormLabel htmlFor='first-name'>Название места</FormLabel>
-            <Input id='first-name' placeholder='Одним словом опишите куда идём'/>
-            <Center height="20px"></Center>
-            <FormLabel htmlFor='amount'>Сколько необходимо собрать?</FormLabel>
-            <NumberInput max={5000} min={500}>
-                <NumberInputField id='amount' placeholder='Минимум 500 - Максимум 5000' />
-                <NumberInputStepper>
-                    <NumberIncrementStepper/>
-                    <NumberDecrementStepper/>
-                </NumberInputStepper>
-            </NumberInput>
-            <Center height="20px"></Center>
-            <FormControl isRequired>
-                <FormLabel htmlFor='body'>Описание мероприятия</FormLabel>
-                <Input id='body' placeholder='В свободной форме опишите что это за мероприятие' />
-            </FormControl>
-            <Center height="20px"></Center>
-            <Button colorScheme='blue'>Создать мероприятие</Button>
+            <SimpleGrid columns={[1, null, 2, 3]} spacing={[4, null, 6]} py="8">
+                <Box>
+                    <FormLabel htmlFor='first-name'>Название мероприятия</FormLabel>
+                    <Input
+                        id='first-name'
+                        placeholder='Куда идём?'
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </Box>
+                <Box>
+                    <FormControl isRequired>
+                        <FormLabel htmlFor='body'>Описание мероприятия</FormLabel>
+                        <Input
+                            id='body'
+                            placeholder='Что там делать?'
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                        />
+                    </FormControl>
+                </Box>
+                <Box>
+                    <FormLabel htmlFor='price'>Стоимость мероприятия</FormLabel>
+                    <Input
+                        id='body'
+                        placeholder='Сколько необходимо собрать?'
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                    />
+                </Box>
+            </SimpleGrid>
+            <Button colorScheme='blue' onClick={handleSubmit}>Создать мероприятие</Button>
         </FormControl>
     )
 }

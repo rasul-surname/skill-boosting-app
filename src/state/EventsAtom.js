@@ -6,12 +6,14 @@ export const EventsAtomState = atom({
         {
             id: 1,
             title: 'Пятничный бар',
-            body: 'Тимбилдинг'
+            body: 'Тимбилдинг',
+            price: '30 000'
         },
         {
             id: 2,
             title: 'Кино',
-            body: 'Посиделки'
+            body: 'Посиделки',
+            price: '20 000'
         }
     ]
 })
