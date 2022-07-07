@@ -5,7 +5,10 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Button, SimpleGrid, Box
+    Button,
+    SimpleGrid,
+    Box,
+    Heading
 } from '@chakra-ui/react';
 
 import {useSetRecoilState} from "recoil";
@@ -39,7 +42,7 @@ const FormEvents = () => {
     }
 
     return (
-        <FormControl isRequired>
+        <FormControl isRequired style={{border: '1px solid #ccc', padding: '30px'}}>
             <SimpleGrid columns={[1, null, 2, 3]} spacing={[4, null, 6]} py="8">
                 <Box>
                     <FormLabel htmlFor='first-name'>Название мероприятия</FormLabel>

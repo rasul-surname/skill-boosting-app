@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import {atom} from 'recoil';
 
 export const EventsAtomState = atom({
     key: 'EventsAtomState',
@@ -9,11 +9,5 @@ export const EventsAtomState = atom({
             body: 'Тимбилдинг',
             price: '30 000'
         },
-        {
-            id: 2,
-            title: 'Кино',
-            body: 'Посиделки',
-            price: '20 000'
-        }
     ]
 })

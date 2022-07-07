@@ -1,0 +1,15 @@
+.menu__mobile {
+    display: none;
+    position: relative;
+    z-index: 1000;
+}
+
+@media (max-width: 900px) {
+    .menu__mobile {
+        display: block;
+    }
+
+    .menu__desctop, .logo {
+        display: none;
+    }
+}

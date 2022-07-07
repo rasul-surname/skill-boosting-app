@@ -28,7 +28,6 @@ const Animation = () => {
                     }}
                     transition={{duration: 6.0, repeat: Infinity}}
                     style={{
-                        border: '1px solid red',
                         width: '100px',
                         height: '100px',
                         overflow: 'hidden'

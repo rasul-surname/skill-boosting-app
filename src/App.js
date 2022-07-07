@@ -14,7 +14,7 @@ function App() {
     return (
         <ChakraProvider theme={theme}>
             <Header/>
-            <Container maxW="container.lg" py="8">
+            <Container maxW="container.lg" py="4">
                 <Routes>
                     <Route path="/about" element={<About/>}/>
                     <Route path="/events" element={<Events/>}/>
