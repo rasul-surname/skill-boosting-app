@@ -4,41 +4,40 @@ export const ListEmployeesState = atom({
     key: 'ListEmployeesState',
     default: [
         {
-            userId: 1,
             id: 1,
-            title:
-                'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-            body: 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
+            title: 'Серёжа',
+            body: 'Начальник фронта',
+            img: 'https://yesno.wtf/assets/yes/12-e4f57c8f172c51fdd983c2837349f853.gif'
         },
         {
-            userId: 1,
             id: 2,
-            title: 'qui est esse',
-            body: 'est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla',
+            title: 'Паша',
+            body: 'Фронтендщик',
+            img: 'https://yesno.wtf/assets/no/20-56c4b19517aa69c8f7081939198341a4.gif'
         },
         {
-            userId: 1,
             id: 3,
-            title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
-            body: 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut',
+            title: 'Гусейн',
+            body: 'Техдир',
+            img: 'https://yesno.wtf/assets/yes/4-c53643ecec77153eefb461e053fb4947.gif'
         },
         {
-            userId: 1,
             id: 4,
-            title: 'eum et est occaecati',
-            body: 'ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit',
+            title: 'Оля',
+            body: 'Аналитик',
+            img: 'https://yesno.wtf/assets/yes/0-c44a7789d54cbdcad867fb7845ff03ae.gif'
         },
         {
-            userId: 1,
             id: 5,
-            title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
-            body: 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut',
+            title: 'Новиков',
+            body: 'Начальник отдела',
+            img: 'https://yesno.wtf/assets/no/19-2062f4c91189b1f88a9e809c10a5b0f0.gif'
         },
         {
-            userId: 1,
             id: 6,
-            title: 'eum et est occaecati',
-            body: 'ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit',
-        },
+            title: 'Артёмка',
+            body: 'Бэкендщик',
+            img: 'https://yesno.wtf/assets/yes/14-b57c6dc03aa15a4b18f53eb50d6197ee.gif'
+        }
     ],
 });

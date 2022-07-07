@@ -6,6 +6,7 @@ import {ChakraProvider, Container, theme} from '@chakra-ui/react';
 import Header from "./components/Header/Header";
 import Events from "./components/Events/Events";
 import About from "./components/About/About";
+import Album from "./components/Album/Album";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                 <Routes>
                     <Route path="/about" element={<About/>}/>
                     <Route path="/events" element={<Events/>}/>
+                    <Route path="/album" element={<Album/>}/>
                 </Routes>
             </Container>
         </ChakraProvider>

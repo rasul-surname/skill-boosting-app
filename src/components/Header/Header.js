@@ -26,6 +26,11 @@ const Header = () => {
                                         <span>Мероприятия</span>
                                     </Box>
                                 </NavLink>
+                                <NavLink to="/album">
+                                    <Box as="li" _hover={{background: '#01c0b1', color: 'white'}} p="2">
+                                        <span>Фоточки</span>
+                                    </Box>
+                                </NavLink>
                             </HStack>
                         </Box>
                     </Box>
