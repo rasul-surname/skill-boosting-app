@@ -1,5 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import {v4 as uuid} from 'uuid';
+import {Formik} from "formik";
+
+import {useSetRecoilState} from "recoil";
+import {EventsAtomState} from "../../state";
 
 import {
     FormControl,
@@ -7,74 +11,84 @@ import {
     Input,
     Button,
     SimpleGrid,
-    Box,
-    Heading
+    Box
 } from '@chakra-ui/react';
 
-import {useSetRecoilState} from "recoil";
-import {EventsAtomState} from "../../state";
-
 const FormEvents = () => {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
-    const [price, setPrice] = useState('');
-
     const setEvents = useSetRecoilState(EventsAtomState);
-
-    function handleSubmit() {
-        if(!!title.length && !!body.length && !!price.length) {
-            setEvents((oldEvents) => {
-                return [
-                    ...oldEvents,
-                    {
-                        id: uuid(),
-                        title: title,
-                        body: body,
-                        price: price
-                    }
-                ]
-            });
-
-            setTitle('');
-            setBody('');
-            setPrice('');
-        }
-    }
 
     return (
         <FormControl isRequired style={{border: '1px solid #ccc', padding: '30px'}}>
-            <SimpleGrid columns={[1, null, 2, 3]} spacing={[4, null, 6]} py="8">
-                <Box>
-                    <FormLabel htmlFor='first-name'>Название мероприятия</FormLabel>
-                    <Input
-                        id='first-name'
-                        placeholder='Куда идём?'
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </Box>
-                <Box>
-                    <FormControl isRequired>
-                        <FormLabel htmlFor='body'>Описание мероприятия</FormLabel>
-                        <Input
-                            id='body'
-                            placeholder='Что там делать?'
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                        />
-                    </FormControl>
-                </Box>
-                <Box>
-                    <FormLabel htmlFor='price'>Стоимость мероприятия</FormLabel>
-                    <Input
-                        id='body'
-                        placeholder='Сколько необходимо собрать?'
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                    />
-                </Box>
-            </SimpleGrid>
-            <Button colorScheme='blue' onClick={handleSubmit}>Создать мероприятие</Button>
+            <Formik
+                initialValues={{title: '', body: '', price: ''}}
+                onSubmit={(values) => {
+                    const {title, body, price} = values;
+
+                    if (!!title.length && !!body.length && !!price.length) {
+                        setEvents((oldEvents) => {
+                            return [
+                                ...oldEvents,
+                                {
+                                    id: uuid(),
+                                    title: title,
+                                    body: body,
+                                    price: price
+                                }
+                            ]
+                        });
+
+                        values.title = "";
+                        values.body = "";
+                        values.price = "";
+                    }
+                }}
+            >
+                {({
+                      values,
+                      handleChange,
+                      handleBlur,
+                      handleSubmit,
+                  }) => (
+                    <form onSubmit={handleSubmit}>
+                        <SimpleGrid columns={[1, null, 2, 3]} spacing={[4, null, 6]} py="8">
+                            <Box>
+                                <FormLabel htmlFor='first-name'>Название мероприятия</FormLabel>
+                                <Input
+                                    type="text"
+                                    name="title"
+                                    placeholder='Куда идём?'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.title}
+                                />
+                            </Box>
+                            <Box>
+                                <FormLabel htmlFor='first-name'>Название мероприятия</FormLabel>
+                                <Input
+                                    type="text"
+                                    name="body"
+                                    placeholder='Что там делать?'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.body}
+                                />
+                            </Box>
+                            <Box>
+                                <FormLabel htmlFor='first-name'>Название мероприятия</FormLabel>
+                                <Input
+                                    type="text"
+                                    name="price"
+                                    placeholder='Сколько необходимо собрать?'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.price}
+                                />
+                            </Box>
+                        </SimpleGrid>
+                        <Button type="submit" colorScheme='blue' onClick={handleSubmit}>Создать мероприятие</Button>
+                    </form>
+                )}
+            </Formik>
         </FormControl>
     )
 }
