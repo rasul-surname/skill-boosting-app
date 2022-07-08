@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // react-query
 import {useQuery} from "react-query";
 import {EmployeesService} from "../../app/services/employees.service";
@@ -14,8 +14,27 @@ const About = () => {
     // recoil
     const ListEmployees = useRecoilValue(ListEmployeesState);
 
+    const [employees, setEmployees] = useState([]);
+
     // react-query
-    const {isLoading, data: response, error, status} = useQuery("Employees List", () => EmployeesService.getAll());
+    const {isLoading, data: response, error, status} = useQuery(
+        "Employees List",
+        () => EmployeesService.getAll(),
+        {
+            onSuccess: ({data}) => {
+                setEmployees(data);
+            },
+            onError: (error) => {
+                alert('Ошибка')
+            },
+            // Трансформация data
+            // select: ({data}) => data.map(eployee => ({
+            //         ...eployee,
+            //         body: 'Статус: ' + eployee.body
+            //     })
+            // )
+        }
+    );
 
     return (
         <Box>
@@ -23,7 +42,7 @@ const About = () => {
                 <Box>Загрузка...</Box>
                 :
                 response?.data.length ?
-                    <CardList cards={response.data}/>
+                    <CardList cards={employees}/>
                     :
                     <Box>Список не найден</Box>
             }
