@@ -7,7 +7,7 @@ import CardList from "../CardList/CardList";
 const Films = () => {
     const [films, setFilms] = useState([]);
 
-    const {data: response} = useQuery(
+    const {data, isLoading, isError} = useQuery(
         'films',
         () => FilmsService.getAll(),
         {
@@ -19,7 +19,7 @@ const Films = () => {
 
     return (
         <Box>
-            <CardList cards={films}/>
+            {isLoading ? 'Загрузка...' : isError ? 'Ошибка' : <CardList cards={films}/>}
         </Box>
     )
 }
