@@ -9,6 +9,7 @@ import Events from "./components/Events/Events";
 import About from "./components/About/About";
 import Album from "./components/Album/Album";
 import Animation from "./components/Animation/Animation";
+import Dates from "./components/Dates/Dates";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/events" element={<Events/>}/>
                         <Route path="/album" element={<Album/>}/>
                         <Route path="/animation" element={<Animation/>}/>
+                        <Route path="/dates" element={<Dates />}/>
                     </Routes>
                 </Container>
             </ChakraProvider>

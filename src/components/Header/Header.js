@@ -64,6 +64,13 @@ const Header = () => {
                                             </Box>
                                         </NavLink>
                                     </MenuItem>
+                                    <MenuItem>
+                                        <NavLink to="/dates">
+                                            <Box as="li" _hover={{background: '#01c0b1', color: 'white'}} p="2">
+                                                <span>Даты</span>
+                                            </Box>
+                                        </NavLink>
+                                    </MenuItem>
                                 </MenuList>
                             </Menu>
                         </Box>
@@ -87,6 +94,11 @@ const Header = () => {
                                 <NavLink to="/animation">
                                     <Box as="li" _hover={{background: '#01c0b1', color: 'white'}} p="2">
                                         <span>Анимации</span>
+                                    </Box>
+                                </NavLink>
+                                <NavLink to="/dates">
+                                    <Box as="li" _hover={{background: '#01c0b1', color: 'white'}} p="2">
+                                        <span>Даты</span>
                                     </Box>
                                 </NavLink>
                             </HStack>
